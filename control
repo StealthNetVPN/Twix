@@ -1,0 +1,9 @@
+Package: com.example.oldkb
+Name: OldKB
+Version: 0.0.1
+Architecture: iphoneos-arm64
+Depends: mobilesubstrate
+Description: Attempt to restore the pre-iOS 26 keyboard look
+Maintainer: me
+Author: me
+Section: Tweaks

@@ -7,8 +7,14 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: Randomblock1/theos-action@v1
-      - run: make package FINALPACKAGE=1
+      - name: Install Theos
+        run: |
+          brew install ldid dpkg make
+          git clone --recursive --depth=1 https://github.com/theos/theos.git $HOME/theos
+      - name: Build
+        run: |
+          export THEOS=$HOME/theos
+          gmake package FINALPACKAGE=1
       - uses: actions/upload-artifact@v4
         with:
           name: OldKB-deb
